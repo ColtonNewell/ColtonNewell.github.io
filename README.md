@@ -1,1 +1,712 @@
-# BEEFINESS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Farm Name] — Grass-Fed Beef</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #27500A;
+    --green-mid: #3B6D11;
+    --green-light: #639922;
+    --green-pale: #EAF3DE;
+    --cream: #F5F2EB;
+    --earth: #2C2C2A;
+    --earth-mid: #444441;
+    --earth-light: #888780;
+    --earth-pale: #F1EFE8;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--earth);
+    background: var(--cream);
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--earth);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    color: var(--earth-pale);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--earth-light);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--earth-pale); }
+
+  .nav-cta {
+    background: var(--green-mid);
+    color: var(--green-pale) !important;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 13px !important;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--earth);
+    padding: 80px 5% 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--green-dark);
+    color: #C0DD97;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--earth-pale);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .hero p {
+    color: var(--earth-light);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    max-width: 420px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--green-mid);
+    color: var(--green-pale);
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--green-dark); }
+
+  .hero-img-placeholder {
+    background: var(--earth-mid);
+    border-radius: 6px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px dashed #5F5E5A;
+  }
+
+  .hero-img-placeholder span {
+    color: var(--earth-light);
+    font-size: 13px;
+  }
+
+  .hero-img-placeholder .img-icon {
+    font-size: 32px;
+    color: #5F5E5A;
+  }
+
+  /* STRIP */
+  .strip {
+    background: var(--green-mid);
+    padding: 14px 5%;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .strip-item {
+    color: var(--green-pale);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .strip-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #97C459;
+    flex-shrink: 0;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 64px 5%;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 8px;
+  }
+
+  section h2 {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--earth);
+    margin-bottom: 16px;
+    line-height: 1.35;
+  }
+
+  section p {
+    color: var(--earth-mid);
+    font-size: 15px;
+    max-width: 640px;
+    line-height: 1.8;
+  }
+
+  /* OUR BEEF */
+  .beef-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .beef-grid .img-placeholder {
+    background: var(--earth-pale);
+    border-radius: 6px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px dashed #B4B2A9;
+  }
+
+  .beef-grid .img-placeholder span {
+    color: var(--earth-light);
+    font-size: 13px;
+  }
+
+  .beef-content { display: flex; flex-direction: column; gap: 20px; }
+
+  .beef-point {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .beef-point-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green-light);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  .beef-point-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--earth);
+    margin-bottom: 2px;
+  }
+
+  .beef-point-text span {
+    font-size: 14px;
+    color: var(--earth-mid);
+    line-height: 1.6;
+  }
+
+  /* PRICING */
+  #order { background: var(--white); }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0 24px;
+  }
+
+  .pricing-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 20px;
+  }
+
+  .pricing-card.featured {
+    background: var(--earth);
+    border-color: var(--earth);
+  }
+
+  .pricing-card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green-light);
+    margin-bottom: 8px;
+  }
+
+  .pricing-card.featured .pricing-card-label { color: #97C459; }
+
+  .pricing-card h3 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--earth);
+    margin-bottom: 20px;
+  }
+
+  .pricing-card.featured h3 { color: var(--earth-pale); }
+
+  .pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .pricing-card.featured .pricing-row { border-color: rgba(255,255,255,0.08); }
+
+  .pricing-row:last-of-type { border-bottom: none; }
+
+  .pricing-row .label { color: var(--earth-light); }
+  .pricing-card.featured .pricing-row .label { color: #888780; }
+
+  .pricing-row .value { color: var(--earth); font-weight: 500; }
+  .pricing-card.featured .pricing-row .value { color: var(--earth-pale); }
+
+  .pricing-total {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .pricing-card.featured .pricing-total { border-color: rgba(255,255,255,0.15); }
+
+  .pricing-total .total-label { font-size: 12px; color: var(--earth-light); }
+  .pricing-card.featured .pricing-total .total-label { color: #888780; }
+
+  .pricing-total .total-value {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    color: var(--green-light);
+  }
+
+  .pricing-card.featured .pricing-total .total-value { color: #97C459; }
+
+  .pricing-note {
+    background: var(--green-pale);
+    border-left: 3px solid var(--green-light);
+    border-radius: 0 4px 4px 0;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--green-dark);
+    line-height: 1.7;
+  }
+
+  .pricing-sub {
+    font-size: 13px;
+    color: var(--earth-light);
+    margin-top: 12px;
+    line-height: 1.7;
+  }
+
+  /* CUT SHEET */
+  #cuts { background: var(--cream); }
+
+  .cuts-intro { margin-bottom: 32px; }
+
+  .cuts-group { margin-bottom: 32px; }
+
+  .cuts-group-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green-light);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cuts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .cuts-table tr { border-bottom: 1px solid var(--border); }
+  .cuts-table tr:last-child { border-bottom: none; }
+
+  .cuts-table td {
+    padding: 10px 0;
+    color: var(--earth-mid);
+    vertical-align: top;
+  }
+
+  .cuts-table td:first-child {
+    font-weight: 500;
+    color: var(--earth);
+    width: 36%;
+    padding-right: 16px;
+  }
+
+  .cuts-note {
+    margin-top: 32px;
+    background: var(--earth-pale);
+    border-radius: 6px;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--earth-mid);
+    line-height: 1.8;
+  }
+
+  .cuts-note strong { color: var(--earth); font-weight: 500; }
+
+  /* CONTACT */
+  #contact { background: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 32px;
+    align-items: start;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 20px; }
+
+  .contact-item { display: flex; flex-direction: column; gap: 4px; }
+
+  .contact-item .contact-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--green-light);
+  }
+
+  .contact-item .contact-value {
+    font-size: 15px;
+    color: var(--earth);
+    font-weight: 500;
+  }
+
+  .contact-note {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: var(--earth-mid);
+    line-height: 1.8;
+  }
+
+  .contact-note strong { color: var(--earth); font-weight: 500; display: block; margin-bottom: 6px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--earth);
+    padding: 28px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer p { color: var(--earth-light); font-size: 13px; }
+
+  footer .footer-logo {
+    font-family: 'Lora', serif;
+    color: var(--earth-pale);
+    font-size: 15px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; padding: 48px 5%; }
+    .hero-img-placeholder { display: none; }
+    .hero h1 { font-size: 28px; }
+    .beef-grid { grid-template-columns: 1fr; }
+    .beef-grid .img-placeholder { display: none; }
+    .pricing-cards { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 4%; }
+    .nav-links { gap: 16px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">[Your Farm Name]</a>
+  <ul class="nav-links">
+    <li><a href="#beef">Our Beef</a></li>
+    <li><a href="#order">Pricing</a></li>
+    <li><a href="#cuts">Cut Sheet</a></li>
+    <li><a href="#contact" class="nav-cta">Order Now</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Grass-fed · Grass-finished</div>
+    <h1>Real Beef.<br>Raised Right.</h1>
+    <p>We raise grass-fed, grass-finished beef on our family farm. No middlemen, no mystery — just quality beef raised the way it should be. Order direct and fill your freezer with beef you can feel good about.</p>
+    <a href="#order" class="btn-primary">See Pricing & Order</a>
+  </div>
+  <div class="hero-img-placeholder">
+    <span class="img-icon">📷</span>
+    <span>Add a photo of your herd here</span>
+    <span style="font-size:12px; color:#5F5E5A;">Replace this div with an &lt;img&gt; tag</span>
+  </div>
+</div>
+
+<div class="strip">
+  <div class="strip-item"><div class="strip-dot"></div>100% grass-fed & grass-finished</div>
+  <div class="strip-item"><div class="strip-dot"></div>No hormones or unnecessary antibiotics</div>
+  <div class="strip-item"><div class="strip-dot"></div>USDA-inspected processing</div>
+  <div class="strip-item"><div class="strip-dot"></div>Direct from our family</div>
+</div>
+
+<section id="beef">
+  <div class="beef-grid">
+    <div class="img-placeholder">
+      <span style="font-size:28px;">🐄</span>
+      <span>Add a pasture photo here</span>
+      <span style="font-size:12px; color:#B4B2A9;">Replace with &lt;img&gt; tag</span>
+    </div>
+    <div class="beef-content">
+      <div>
+        <div class="section-label">How we raise our cattle</div>
+        <h2>The way cattle are meant to live</h2>
+      </div>
+      <div class="beef-point">
+        <div class="beef-point-dot"></div>
+        <div class="beef-point-text">
+          <strong>Grass-fed, grass-finished</strong>
+          <span>Our cattle graze natural pasture from start to finish — no grain, no feedlot.</span>
+        </div>
+      </div>
+      <div class="beef-point">
+        <div class="beef-point-dot"></div>
+        <div class="beef-point-text">
+          <strong>No hormones or unnecessary antibiotics</strong>
+          <span>We raise our animals the way we'd want our own food raised.</span>
+        </div>
+      </div>
+      <div class="beef-point">
+        <div class="beef-point-dot"></div>
+        <div class="beef-point-text">
+          <strong>USDA-inspected processing</strong>
+          <span>Custom cut and wrapped to your preferences at a local USDA-inspected facility.</span>
+        </div>
+      </div>
+      <div class="beef-point">
+        <div class="beef-point-dot"></div>
+        <div class="beef-point-text">
+          <strong>Direct from our family</strong>
+          <span>We know what went into every animal and stand behind the quality of every order.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="section-label">Pricing</div>
+  <h2>Choose your size</h2>
+  <p>We sell beef by the whole, half, and quarter animal. Availability is limited — we recommend reserving your order early.</p>
+
+  <div class="pricing-cards">
+    <div class="pricing-card">
+      <div class="pricing-card-label">Small</div>
+      <h3>Quarter beef</h3>
+      <div class="pricing-row"><span class="label">Est. hanging weight</span><span class="value">150–200 lbs</span></div>
+      <div class="pricing-row"><span class="label">Est. finished weight</span><span class="value">100–125 lbs</span></div>
+      <div class="pricing-row"><span class="label">Freezer space needed</span><span class="value">~4 cu ft</span></div>
+      <div class="pricing-total">
+        <span class="total-label">Est. total cost</span>
+        <span class="total-value">$900–$1,200</span>
+      </div>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-card-label">Most popular</div>
+      <h3>Half beef</h3>
+      <div class="pricing-row"><span class="label">Est. hanging weight</span><span class="value">300–400 lbs</span></div>
+      <div class="pricing-row"><span class="label">Est. finished weight</span><span class="value">200–250 lbs</span></div>
+      <div class="pricing-row"><span class="label">Freezer space needed</span><span class="value">~8 cu ft</span></div>
+      <div class="pricing-total">
+        <span class="total-label">Est. total cost</span>
+        <span class="total-value">$1,800–$2,400</span>
+      </div>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-card-label">Best value</div>
+      <h3>Whole beef</h3>
+      <div class="pricing-row"><span class="label">Est. hanging weight</span><span class="value">600–800 lbs</span></div>
+      <div class="pricing-row"><span class="label">Est. finished weight</span><span class="value">400–500 lbs</span></div>
+      <div class="pricing-row"><span class="label">Freezer space needed</span><span class="value">~16 cu ft</span></div>
+      <div class="pricing-total">
+        <span class="total-label">Est. total cost</span>
+        <span class="total-value">$3,600–$4,800</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pricing-note">
+    All beef is <strong>$4.50/lb hanging weight</strong> + <strong>$1.50/lb cut & wrap</strong> = <strong>$6.00/lb total</strong>. Cut & wrap is paid directly to our processor at pickup. Final cost is based on actual hanging weight at processing.
+  </div>
+  <p class="pricing-sub">All estimates are based on average animal size. Final cost is determined by actual hanging weight at processing. We'll confirm your exact total once your animal is processed.</p>
+</section>
+
+<section id="cuts">
+  <div class="cuts-intro">
+    <div class="section-label">Cut sheet</div>
+    <h2>How would you like it cut?</h2>
+    <p>When you place your order, our processor will ask how you'd like your beef cut and packaged. We'll send you a cut sheet form to fill out once your order is confirmed. Here's what to expect:</p>
+  </div>
+
+  <div class="cuts-group">
+    <div class="cuts-group-title">Steaks</div>
+    <table class="cuts-table">
+      <tr><td>Ribeye</td><td>Thickness: ¾" / 1" / 1¼" — Qty per pack: 1 or 2</td></tr>
+      <tr><td>T-Bone / Porterhouse</td><td>Thickness: ¾" / 1" / 1¼" — Qty per pack: 1 or 2</td></tr>
+      <tr><td>NY Strip</td><td>Thickness: ¾" / 1" / 1¼" — Qty per pack: 1 or 2</td></tr>
+      <tr><td>Sirloin</td><td>Thickness: ¾" / 1" / 1¼" — Qty per pack: 1 or 2</td></tr>
+      <tr><td>Tenderloin (Filet)</td><td>Thickness: ¾" / 1" / 1¼" — Qty per pack: 1 or 2</td></tr>
+    </table>
+  </div>
+
+  <div class="cuts-group">
+    <div class="cuts-group-title">Roasts</div>
+    <table class="cuts-table">
+      <tr><td>Chuck Roast</td><td>Size: 2 lb / 3 lb / 4 lb</td></tr>
+      <tr><td>Arm Roast</td><td>Size: 2 lb / 3 lb / 4 lb</td></tr>
+      <tr><td>Rump Roast</td><td>Size: 2 lb / 3 lb / 4 lb</td></tr>
+      <tr><td>Sirloin Tip Roast</td><td>Size: 2 lb / 3 lb / 4 lb</td></tr>
+      <tr><td>Brisket</td><td>Whole or half</td></tr>
+    </table>
+  </div>
+
+  <div class="cuts-group">
+    <div class="cuts-group-title">Ground Beef</div>
+    <table class="cuts-table">
+      <tr><td>Package size</td><td>1 lb / 1.5 lb / 2 lb</td></tr>
+      <tr><td>Fat content</td><td>Regular (~80/20) or lean (~90/10)</td></tr>
+    </table>
+  </div>
+
+  <div class="cuts-group">
+    <div class="cuts-group-title">Ribs & Other Cuts</div>
+    <table class="cuts-table">
+      <tr><td>Short Ribs</td><td>Pack of 4 or 6</td></tr>
+      <tr><td>Back Ribs</td><td>Full rack or half rack</td></tr>
+      <tr><td>Stew Meat</td><td>1 lb or 2 lb packs</td></tr>
+      <tr><td>Soup Bones</td><td>Yes or no</td></tr>
+      <tr><td>Liver / Heart / Tongue</td><td>Yes or no</td></tr>
+    </table>
+  </div>
+
+  <div class="cuts-note">
+    <strong>Not sure what to choose?</strong>
+    All beef is vacuum sealed and labeled with the cut name and date. Properly frozen beef keeps for 12–18 months. We're happy to walk you through cut options before your processing date — just reach out and we'll help you get the most out of your order.
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2>Ready to order?</h2>
+  <p>Reach out directly to reserve your beef. Availability is limited each season. We typically respond within 24 hours.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <span class="contact-label">Name</span>
+        <span class="contact-value">[Your Name]</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <span class="contact-value">[Your Phone Number]</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">[Your Email Address]</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">[County, State]</span>
+      </div>
+    </div>
+    <div class="contact-note">
+      <strong>What happens after you reach out</strong>
+      We'll confirm availability, answer any questions about sizing or pricing, and get you a cut sheet form to fill out. Payment is due in full before pickup at our processor. We'll keep you updated on your processing date as it gets closer.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">[Your Farm Name]</span>
+  <p>Grass-fed beef, raised by our family · [County, State]</p>
+</footer>
+
+</body>
+</html>
